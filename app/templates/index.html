@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Classificador de Emails</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Classificação Inteligente de Emails</h1>
+    <p class="subtitle">Cole o email abaixo ou faça upload de um arquivo para análise automática</p>
+
+    <form method="post" action="/analyze" enctype="multipart/form-data">
+        <textarea name="email_text" placeholder="Cole aqui o texto do email...">{{ email_text if email_text else "" }}</textarea>
+        <label for="email_file">Ou faça upload do arquivo (.txt ou .pdf):</label>
+        <input type="file" id="email_file" name="email_file" accept=".txt,.pdf">
+        <button type="submit" id="submitBtn">Analisar Email</button>
+
+        <div id="loader" class="loader hidden">
+            <div class="spinner"></div>
+            <p>Analisando email...</p>
+        </div>
+    </form>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    {% if category %}
+        <div class="result">
+            <h2>Resultado</h2>
+            <span class="badge {{ 'badge-prod' if category == 'Produtivo' else 'badge-imp' }}">{{ category }}</span>
+            <div class="response-box {{ 'productive-box' if category == 'Produtivo' else 'improductive-box' }}">
+                <h3>Resposta ao cliente</h3>
+                <p>{{ response }}</p>
+            </div>
+        </div>
+    {% endif %}
+</div>
+
+<script>
+const form = document.querySelector("form");
+const loader = document.getElementById("loader");
+const button = document.getElementById("submitBtn");
+
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    button.style.display = "none";
+    loader.classList.remove("hidden");
+    setTimeout(() => form.submit(), 900);
+});
+</script>
+</body>
+</html>

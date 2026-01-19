@@ -1,0 +1,179 @@
+/* Reset básico e tipografia */
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(to right, #e0f7fa, #f1f8e9);
+    padding: 40px 20px;
+    min-height: 100vh;
+}
+
+/* Container central */
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-2px);
+}
+
+h1 {
+    text-align: center;
+    font-size: 28px;
+    color: #1565c0;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #555;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+/* Textarea e input file */
+textarea {
+    width: 100%;
+    min-height: 180px;
+    padding: 18px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+}
+
+textarea:focus {
+    border-color: #1976d2;
+    box-shadow: 0 0 8px rgba(25, 118, 210, 0.3);
+    outline: none;
+}
+
+input[type="file"] {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* Botão */
+button {
+    width: 100%;
+    padding: 14px;
+    background: #1976d2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+button:hover {
+    background: #1565c0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* Mensagem de erro */
+.error {
+    margin-top: 20px;
+    color: #c62828;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Resultado */
+.result {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 12px;
+    background: #f9f9f9;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.result:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+/* Badge */
+.badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.badge-prod {
+    background-color: #c8e6c9;
+    color: #2e7d32;
+}
+
+.badge-imp {
+    background-color: #eceff1;
+    color: #37474f;
+}
+
+/* Caixa de resposta */
+.response-box {
+    padding: 18px;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-size: 15px;
+    line-height: 1.5;
+    transition: all 0.3s ease;
+}
+
+.productive-box {
+    background-color: #e8f5e9;
+    border-left: 5px solid #2e7d32;
+}
+
+.improductive-box {
+    background-color: #f1f3f4;
+    border-left: 5px solid #546e7a;
+}
+
+/* Loader */
+.hidden { display: none; }
+
+.loader {
+    margin-top: 20px;
+    text-align: center;
+    color: #555;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 5px solid #ccc;
+    border-top: 5px solid #1976d2;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .container { padding: 30px 20px; }
+    textarea { min-height: 150px; }
+    button { padding: 12px; font-size: 15px; }
+}
