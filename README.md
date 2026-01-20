@@ -122,7 +122,23 @@ O foco foi manter uma experiência **limpa, intuitiva e objetiva**.
 
 ---
 
+## Como executar o projeto localmente
+
+1. Crie o ambiente virtual:
+   python -m venv venv
+   source venv/bin/activate  # Windows: venv\Scripts\activate
+
+2. Instale as dependências:
+   pip install -r requirements.txt
+
+3. Execute a aplicação:
+   uvicorn app.main:app --reload
+
+4. Acesse:
+   http://127.0.0.1:8000/docs
+
 ##  Estrutura do Projeto
+
 
 ```bash
 app/
